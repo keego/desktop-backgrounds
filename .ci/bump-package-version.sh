@@ -2,7 +2,7 @@
 
 set -x
 
-npm version minor &> /dev/null
+npm version patch &> /dev/null
 
 git reset HEAD~ &> /dev/null
 
