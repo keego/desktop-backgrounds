@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -e
 
 git merge master &> /dev/null
 
