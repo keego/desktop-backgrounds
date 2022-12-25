@@ -31,5 +31,5 @@ jobs:
       - name: Bump package version
         run: ./.ci/bump-package-version.sh
 
-      - name: Bump package version
+      - name: Publish release
         run: ./.ci/publish-release.sh
