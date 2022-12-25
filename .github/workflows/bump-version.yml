@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set git user
         run: |
@@ -29,5 +31,5 @@ jobs:
       - name: Bump package version
         run: ./.ci/bump-package-version.sh
 
-      - name: Bump package version
+      - name: Publish release
         run: ./.ci/publish-release.sh
