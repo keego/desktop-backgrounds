@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -e
 
 git push origin release
 git push origin --tags

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -e
 
 npm version patch &> /dev/null
 
