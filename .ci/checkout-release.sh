@@ -2,7 +2,7 @@
 
 set -x
 
-git fetch $GITHUB_WORKSPACE release &> /dev/null
+git fetch release &> /dev/null
 
 if [[ $? -eq 0 ]]; then
   git checkout release 1> /dev/null
