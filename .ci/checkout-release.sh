@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 git fetch $GITHUB_WORKSPACE release &> /dev/null
 
 if [[ $? -eq 0 ]]; then
