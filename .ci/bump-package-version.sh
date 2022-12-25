@@ -3,16 +3,14 @@
 set -e
 set -x
 
-npm version patch
+npm version patch --no-git-tag-version
 
-git reset HEAD~
+NEW_VERSION=v`npx -c 'node -p "process.env.npm_package_version"'`
 
-PKG_VERSION=`npx -c 'node -p "process.env.npm_package_version"'`
-
-echo "INFO: bumping to v$PKG_VERSION"
+echo "INFO: bumping to $NEW_VERSION"
 
 git add -A
-git commit -m "v$PKG_VERSION"
-git tag -f "v$PKG_VERSION"
+git commit -m "$NEW_VERSION"
+git tag -f "$NEW_VERSION"
 
 echo "INFO: done"
