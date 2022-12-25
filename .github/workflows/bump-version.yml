@@ -22,11 +22,14 @@ jobs:
       #   run: |
       #     git add -A && git commit -m "Stashing changes" --allow-empty &> /dev/null
 
-      - name: Checkout the release branch
-        run: ./.ci/checkout-release.sh
+      # - name: Checkout the release branch
+      #   run: ./.ci/checkout-release.sh
 
-      - name: Merge master
-        run: ./.ci/merge-master.sh
+      # - name: Merge master
+      #   run: ./.ci/merge-master.sh
+
+      - name: Merge the release branch
+        run: ./.ci/merge-release.sh
 
       - name: Bump package version
         run: ./.ci/bump-package-version.sh
