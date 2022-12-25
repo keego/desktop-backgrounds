@@ -1,0 +1,10 @@
+{
+  "name": "desktop-backgrounds",
+  "version": "0.0.1",
+  "description": "Keegs' desktop backgrounds",
+  "main": "",
+  "repository": "git@github.com:keego/desktop-backgrounds.git",
+  "author": "Keegan Farley <keegansfarley@gmail.com>",
+  "license": "UNLICENSED",
+  "private": false
+}
