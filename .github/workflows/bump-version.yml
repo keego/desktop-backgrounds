@@ -1,16 +1,21 @@
 name: bump-version
 
 on:
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
+  pull_request:
+    types:
+      - closed
 
 jobs:
   bump-version:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
+          token: ${{ secrets.WORKFLOW_GIT_ACCESS_TOKEN }}
           fetch-depth: 0
 
       - name: Set git user
@@ -28,11 +33,17 @@ jobs:
       # - name: Merge master
       #   run: ./.ci/merge-master.sh
 
-      - name: Merge the release branch
-        run: ./.ci/merge-release.sh
+      - name: Echo
+        run: ./.ci/echo.sh
 
       - name: Bump package version
         run: ./.ci/bump-package-version.sh
 
-      - name: Publish release
-        run: ./.ci/publish-release.sh
+      - name: Log git info
+        run: ./.ci/echo-git-info.sh
+
+      # - name: Merge the release branch
+      #   run: ./.ci/merge-release.sh
+
+      # - name: Publish release
+      #   run: ./.ci/publish-release.sh

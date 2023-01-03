@@ -1,0 +1,12 @@
+{
+  "pull_request": {
+    "head": {
+      "ref": "master"
+    },
+    "base": {
+      "ref": "update/fake-update"
+    },
+    "number": 69,
+    "merged": true
+  }
+}
