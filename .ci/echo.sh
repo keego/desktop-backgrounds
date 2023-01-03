@@ -1,7 +1,9 @@
 #!/bin/bash
 
-echo hello world
 # with: arg: ...
-echo $INPUT_ARG
+# echo $INPUT_ARG
 echo GITHUB_WORKSPACE = $GITHUB_WORKSPACE
-echo hello world
+echo GITHUB_REF = $GITHUB_REF
+echo GITHUB_EVENT_PATH = $GITHUB_EVENT_PATH
+
+cat $GITHUB_EVENT_PATH
