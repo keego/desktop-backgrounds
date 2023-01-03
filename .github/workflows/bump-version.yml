@@ -23,15 +23,10 @@ jobs:
           git config user.name "GitHub actions bot - bump-version"
           git config user.email "<>"
 
-      # - name: DEV commit local changes
-      #   run: |
-      #     git add -A && git commit -m "Stashing changes" --allow-empty &> /dev/null
-
-      # - name: Checkout the release branch
-      #   run: ./.ci/checkout-release.sh
-
-      # - name: Merge master
-      #   run: ./.ci/merge-master.sh
+      - name: DEV commit local changes
+        if: ${{ env.ENV == 'test' }}
+        run: |
+          git add -A && git commit -m "Stashing changes" --allow-empty &> /dev/null
 
       - name: Echo
         run: ./.ci/echo.sh
@@ -42,8 +37,8 @@ jobs:
       - name: Log git info
         run: ./.ci/echo-git-info.sh
 
-      # - name: Merge the release branch
-      #   run: ./.ci/merge-release.sh
-
-      # - name: Publish release
-      #   run: ./.ci/publish-release.sh
+      - name: Publish release
+        if: ${{ env.ENV != 'test' }}
+        run: |
+          git push origin HEAD:master
+          git push origin --tags -f
